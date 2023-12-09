@@ -1,5 +1,6 @@
 package com.samuel.shoppingms.services;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.samuel.shoppingms.model.Order;
 import com.samuel.shoppingms.repository.OrderRepository;
 import com.samuel.shoppingms.services.rabbitmq.Producer;

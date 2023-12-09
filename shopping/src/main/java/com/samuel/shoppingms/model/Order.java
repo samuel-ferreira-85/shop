@@ -1,28 +1,23 @@
 package com.samuel.shoppingms.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.FutureOrPresent;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter @Setter
 @Builder
+@EqualsAndHashCode(of = "id")
 @Entity(name = "tb_order")
 public class Order implements Serializable {
     private static final long serialVersionUID = 1;
@@ -31,6 +26,12 @@ public class Order implements Serializable {
     private Long id;
     @NotBlank
     private String name;
+    @Email
+    private String email;
+    @CPF
+    private String cpf;
+    @NotBlank
+    private String cep;
     @NotNull
     @Positive
     private Long product;
@@ -41,8 +42,5 @@ public class Order implements Serializable {
     @FutureOrPresent
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOrder;
-    @CPF
-    private String cpf;
-    @NotBlank
-    private String cep;
+
 }

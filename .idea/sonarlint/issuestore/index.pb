@@ -1,0 +1,23 @@
+
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+y
+Iworkershop/src/main/java/com/samuel/workershop/WorkershopApplication.java,f\0\f03c3daa75f1e50cbb435c2b4b127bcdcb7b6d4d
+o
+?workershop/src/main/java/com/samuel/workershop/model/Order.java,a\2\a27e2bd6d6f703c272e20a44397d2859d9cc7e57
+u
+Eshopping/src/main/java/com/samuel/shoppingms/ShoppingApplication.java,e\9\e9ff8cc2ce84ca8fc3b0d2973ab90e2c9f553475
+B
+workershop/pom.xml,1\6\16483b5613f98515dc3dde3f243a08476fe0212d
+|
+Lshopping/src/main/java/com/samuel/shoppingms/controller/OrderController.java,9\d\9da62507bff3c4d65d2c86066459ba1ef7fd40c2
+w
+Gshopping/src/main/java/com/samuel/shoppingms/services/OrderService.java,e\3\e37f15281a843b05bb709cfd0832f993a5b5bc23
+|
+Lshopping/src/main/java/com/samuel/shoppingms/services/rabbitmq/Producer.java,0\8\08f27908d94575e7a669f84ca49dbca7663b7cfa
+u
+Eworkershop/src/main/java/com/samuel/workershop/consumer/Consumer.java,d\b\db587abec4c82faf90ff4ff2455d913af35b1699
+C
+shopping/Dockerfile,f\c\fc11da8abd3bf28c86bd2baf88ad3864553d5704
+@
+shopping/pom.xml,c\f\cfd6b07dfa3ca0b471950b42ec558fb0ce179f6b

@@ -11,6 +11,7 @@
 	<groupId>com.samuel</groupId>
 	<artifactId>shopping</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>shopping</name>
 	<description>Educational project to deepen Microservices development with Java and RabbitMQ</description>
 	<properties>
@@ -62,6 +63,7 @@
     </dependencies>
 
 	<build>
+		<finalName>app</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
