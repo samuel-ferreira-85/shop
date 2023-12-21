@@ -5,6 +5,7 @@ import com.samuel.shoppingms.ShoppingApplication;
 import com.samuel.shoppingms.factory.Factory;
 import com.samuel.shoppingms.model.Order;
 import com.samuel.shoppingms.services.OrderService;
+import com.samuel.shoppingms.services.rabbitmq.Producer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,12 +13,15 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doNothing;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -34,6 +38,8 @@ class OrderControllerTest {
     private MockMvc mockMvc;
     @Autowired
     private OrderService orderService;
+    @MockBean
+    private Producer producer;
     @Autowired
     private ObjectMapper mapper;
     private static final String ROUTE_ORDER = "/orders";
@@ -52,6 +58,7 @@ class OrderControllerTest {
     @DisplayName("POST - Deve cadastrar um pedido no database")
     @Test
     void saveShouldReturnOKSaveOrderSuccessfully() throws Exception {
+        doNothing().when(producer).toSend(any(Order.class));
         mockMvc.perform(post(ROUTE_ORDER)
                 .content(mapper.writeValueAsString(order))
                 .contentType(MediaType.APPLICATION_JSON)
